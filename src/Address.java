@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Address {
     private String streetNum;
     private String streetName;
@@ -12,6 +15,22 @@ public class Address {
         this.city = city;
         this.state = state;
         this.zipCode = zipCode;
+    }
+    public Address(Address address) {
+        streetNum = address.getStreetNum();
+        streetName = address.getStreetName();
+        apartmentNum = address.getApartmentNum();
+        city = address.getCity();
+        state = address.getState();
+        zipCode = address.getZipCode();
+    }
+    public Address(String address) {
+        String[] addressComponents = address.split(", ");
+        String streetComponent = addressComponents[0];
+        streetNum = streetComponent.substring(0, streetComponent.indexOf(" "));
+        streetComponent = streetComponent.substring(streetComponent.indexOf(" "));
+        apartmentNum = streetComponent.substring()
+        System.out.println(Arrays.toString(addressComponents));
     }
     public String getStreetNum() {
         return streetNum;
@@ -60,7 +79,14 @@ public class Address {
     public void setZipCode(int zipCode) {
         this.zipCode = zipCode;
     }
+    public boolean apartmentIncluded() {
+        return !(apartmentNum.equals("") || apartmentNum == null);
+    }
     public String toString() {
-        return(streetNum + " " + streetName + " " + )
+        if(apartmentIncluded()) {
+            return(streetNum + " " + streetName + " " + apartmentNum + ", " + city + ", " + state + ", " + zipCode);
+        } else {
+            return(streetNum + " " + streetName + ", " + city + ", " + state + ", " + zipCode);
+        }
     }
 }
