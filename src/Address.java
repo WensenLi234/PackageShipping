@@ -29,7 +29,7 @@ public class Address {
         String streetComponent = addressComponents[0];
         streetNum = streetComponent.substring(0, streetComponent.indexOf(" "));
         streetComponent = streetComponent.substring(streetComponent.indexOf(" "));
-        apartmentNum = streetComponent.substring()
+        // apartmentNum = streetComponent.substring()
         System.out.println(Arrays.toString(addressComponents));
     }
     public String getStreetNum() {
